@@ -41,4 +41,15 @@ class DatabaseProvider {
     db.insert("notes", note.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
+
+  Future<dynamic> getNotes() async {
+    final db = await database;
+    var res = await db.query('notes');
+    if (res.isEmpty) {
+      return Null;
+    } else {
+      var resultMap = res.toList();
+      return resultMap.isNotEmpty ? resultMap : Null;
+    }
+  }
 }
