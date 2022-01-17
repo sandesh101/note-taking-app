@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/db/database_provider.dart';
+import 'package:note_app/screens/add_notes.dart';
 
 void main() => runApp(const NoteApp());
 
@@ -11,7 +12,10 @@ class NoteApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
-      routes: {"/": (context) => const HomeScreen()},
+      routes: {
+        "/": (context) => const HomeScreen(),
+        "/AddNotes": (context) => const AddNotes(),
+      },
     );
   }
 }
@@ -78,6 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           return Container();
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, "/AddNotes");
+        },
+        child: const Icon(Icons.note_add),
       ),
     );
   }
