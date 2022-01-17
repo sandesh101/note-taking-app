@@ -13,12 +13,13 @@ class _AddNotesState extends State<AddNotes> {
   String title = "";
   String body = "";
   DateTime createdTime = DateTime.now();
+  int id = 0;
 
   TextEditingController titleController = TextEditingController();
   TextEditingController bodyController = TextEditingController();
 
-  addNotes(NoteModel note) {
-    DatabaseProvider.db.addNewNote(note);
+  addNotes(NoteModel notes) {
+    DatabaseProvider.db.addNewNote(notes);
   }
 
   @override
@@ -58,9 +59,10 @@ class _AddNotesState extends State<AddNotes> {
             title = titleController.text;
             body = bodyController.text;
             createdTime = DateTime.now();
+            id += 1;
           });
           NoteModel note = NoteModel(
-              id: 1, title: title, body: body, createdTime: createdTime);
+              id: id, title: title, body: body, createdTime: createdTime);
           addNotes(note);
           Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
         },

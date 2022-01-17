@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             case ConnectionState.done:
               {
-                if (snapshot.data == Null) {
+                if (snapshot.data == null) {
                   return const Center(
                     child: Text("You don't have any data. First create one"),
                   );
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         String body = snapshot.data[index]['body'];
                         String createdTime =
                             snapshot.data[index]['createdTime'];
-                        // int id = snapshot.data[index]['id'];
+                        int id = snapshot.data[index]['id'];
                         return Card(
                           child: ListTile(
                             title: Text(title),

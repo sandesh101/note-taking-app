@@ -15,7 +15,7 @@ class NoteModel {
       "id": id,
       "title": title,
       "body": body,
-      "createdTime": createdTime,
+      "createdTime": createdTime.toString(),
     });
   }
 }
