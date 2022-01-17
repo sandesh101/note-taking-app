@@ -30,7 +30,7 @@ class DatabaseProvider {
           title TEXT,
           body TEXT,
           createdTime DATE
-        )
+        ),
         ''');
       },
     );
